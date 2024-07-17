@@ -1,0 +1,224 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@font-face {
+    font-family: 'Fancy';
+    src: url(./fonts/Fancy/font.woff);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(./fonts/roboto-fontfacekit/web_fonts/roboto_light_macroman/Roboto-Light-webfont.ttf);
+}
+
+/* Custom properties */
+:root{
+    --light-color: #fff;
+    --light-color-alt: #e4e5e8;
+    --dark-color: #20083e;
+    --dark-color-alt: #a767e5;
+    --primary-background-color: #131417; /* #fff */
+    --secondary-background-color: #252830;
+    --hover-light-color: var(--light-color);
+    --hover-dark-color: var(--primary-background-color);
+    --transparent-light-color: rgba(255,255,255,.05);
+    --transparent-dark-color: rgba(0,0,0,.75);
+    --font-family: 'Roboto', sans-serif;
+    --font-fancy: 'Fancy';
+    --font-size-xsm: 1.2rem;
+    --font-size-sm: 1.6rem;
+    --font-size-md: 2.4rem;
+    --font-size-lg: 3rem;
+    --font-size-xl: 4rem;
+    --gap: 2rem;
+    --margin-sm: 2rem;
+    --margin-md: 3rem;
+    --item-min-height-sm: 20rem;
+    --item-min-height-md: 30rem;
+}
+
+/* Base styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    /* font-size: 10px; */ /* CR: 10 pixels is 62.5% here; prefer using rem */
+    font-size: 62.5%;
+}
+
+body{
+    font-family: var(--font-fancy);
+    font-size: var(--font-size-lg);
+    color: var(--dark-color);
+    background-color: var(--dark-color);
+    letter-spacing: 1px; /* CR: why px here? */
+    transition: background-color .25s, color .25s;
+
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{ /* CR: html unordered list */
+    list-style: none;
+}
+
+img{
+    max-width: 100%; /* CR: so that images won't overflow containers */
+    /* display: block; */ /* CR: debugging; not in "completed" */
+}
+
+input,
+button{
+    font: inherit;
+    color: inherit;
+    border: none;
+    background-color: transparent;
+    /* outline: none; */ /* CR: debugging; not in "completed" */
+}
+
+i{ /* CR: refers to all the buttons with <i> class */
+    font-size: var(--font-size-md); /* CR: bigger font on buttons than in main text */
+}
+/* Theme color change
+body.light-theme{
+    --light-color: #3d3d3d;
+    --light-color-alt: rgba(0,0,0,.6);
+    --primary-background-color: #fff;
+    --secondary-background-color: #f1f1f1;
+    --hover-light-color: #fff;
+    --transparent-dark-color: #f1f1f1;
+    --transparent-light-color: rgba(0,0,0,.1);
+}
+ */
+
+/* Reusable classes */
+.container{
+    max-width: 90%;
+    max-height: 90%;
+    margin: 5rem;
+    padding: 3rem 2.5rem;
+    background-color: var(--light-color);
+    text-align: center;
+    /* CR: padding
+        if 4 values: top, right, left, bottom
+        if 3 values: top, right and left, bottom
+        if 2 values: top and bottom, left and right
+        if 1 value: same for top, right, left, bottom */
+    border-radius: 2rem;
+}
+
+.place-items-center{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+.section:not(.featured-articles){
+    padding-block: 2.5rem;
+}
+*/
+
+/* Mobile */
+@media (max-width: 320px) {
+    .logo {
+    width: 100%;
+    text-align: center;
+    margin-top: 13px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    }
+    .text_column {
+    width: 100%;
+    text-align: justify;
+    padding: 0;
+    }
+    .intro .column p {
+    width: 80%;
+    margin-left: 0px;
+    }
+    .text_column {
+    padding-left: 20px;
+    }
+    .thumbnail {
+    width: 100%;
+    }
+    .column {
+    width: 100%;
+    margin-top: 0px;
+    }
+    .hero_header {
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 22px;
+    text-align: center;
+    }
+    }
+    
+    /* Small Tablets */
+    @media (min-width: 321px)and (max-width: 767px) {
+    .logo {
+    width: 100%;
+    text-align: center;
+    margin-top: 13px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    }
+    .text_column {
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    }
+    .thumbnail {
+    width: 100%;
+    }
+    .column {
+    width: 100%;
+    margin-top: 0px;
+    }
+    .thumbnail {
+    width: 100%;
+    }
+    .text_column {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 90%;
+    }
+    .column {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    }
+    .profile {
+    width: 100%;
+    }
+    .intro .column p {
+    width: 90%;
+    text-align: center;
+    padding-left: 0px;
+    }
+    }
+    
+    /* Small Desktops */
+    @media (min-width: 768px) and (max-width: 1096px) {
+    .text_column {
+    width: 100%;
+    }
+    .thumbnail {
+    width: 48%;
+    }
+    .text_column {
+    width: 90%;
+    margin: 0;
+    padding: 20px;
+    }
+    .intro .column p {
+    width: 80%;
+    }
+    }
